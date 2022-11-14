@@ -1,0 +1,11 @@
+D:\Sorgenti\Personali\Web\HouseduinoBackEnd\bin\Release\net5.0\publish\HouseduinoBackEnd.exe
+D:\Sorgenti\Personali\Web\HouseduinoBackEnd\bin\Release\net5.0\publish\appsettings.Development.json
+D:\Sorgenti\Personali\Web\HouseduinoBackEnd\bin\Release\net5.0\publish\appsettings.json
+D:\Sorgenti\Personali\Web\HouseduinoBackEnd\bin\Release\net5.0\publish\HouseduinoBackEnd.dll
+D:\Sorgenti\Personali\Web\HouseduinoBackEnd\bin\Release\net5.0\publish\HouseduinoBackEnd.deps.json
+D:\Sorgenti\Personali\Web\HouseduinoBackEnd\bin\Release\net5.0\publish\HouseduinoBackEnd.runtimeconfig.json
+D:\Sorgenti\Personali\Web\HouseduinoBackEnd\bin\Release\net5.0\publish\HouseduinoBackEnd.pdb
+D:\Sorgenti\Personali\Web\HouseduinoBackEnd\bin\Release\net5.0\publish\Microsoft.OpenApi.dll
+D:\Sorgenti\Personali\Web\HouseduinoBackEnd\bin\Release\net5.0\publish\Swashbuckle.AspNetCore.Swagger.dll
+D:\Sorgenti\Personali\Web\HouseduinoBackEnd\bin\Release\net5.0\publish\Swashbuckle.AspNetCore.SwaggerGen.dll
+D:\Sorgenti\Personali\Web\HouseduinoBackEnd\bin\Release\net5.0\publish\Swashbuckle.AspNetCore.SwaggerUI.dll
