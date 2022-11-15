@@ -1,0 +1,29 @@
+﻿<Properties GitUserInfo="UsingGIT" StartupConfiguration="{9F1FACBC-D4AF-4C26-B511-4244522420D4}|Default">
+  <MonoDevelop.Ide.ItemProperties.HouseduinoBackEnd PreferredExecutionTarget="/Applications/Google Chrome.app" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.Workbench ActiveDocument="Helper/Constants.cs">
+    <Files>
+      <File FileName="Controllers/ActivityController.cs" />
+      <File FileName="Models/ActivityModel.cs" />
+      <File FileName="Helper/Constants.cs" Line="8" Column="49" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="HouseduinoBackEnd" expanded="True">
+            <Node name="HouseduinoBackEnd" expanded="True">
+              <Node name="Controllers" expanded="True" />
+              <Node name="Helper" expanded="True" />
+              <Node name="Models" expanded="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>

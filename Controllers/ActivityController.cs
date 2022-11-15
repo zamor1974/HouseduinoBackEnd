@@ -5,64 +5,12 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using HouseduinoBackEnd.Models;
+using HouseduinoBackEnd.Helper;
+using System.Reflection;
 
 
-/* / swagger:route GET /activity/all activity activityAll
-// Get Activity list
-//
-// responses:
-//  401: CommonError
-//  200: GetActivities
-func (h *BaseHandlerSqlx) GetActivitiesSqlx(w http.ResponseWriter, r *http.Request) {
-	response := GetActivities{}
+/* 
 
-	activities := models.GetActivitiesSqlx(h.db.DB)
-
-	response.Status = 1
-	response.Message = lang.Get("success")
-	response.Data = activities
-
-	w.Header().Set("content-type", "application/json")
-	json.NewEncoder(w).Encode(response)
-}
-
-// swagger:route GET /activity/isactive activity activityIsActive
-// Get if sensor is online or offline
-//
-// responses:
-//  401: CommonError
-//  200: GetIsActive
-func (h *BaseHandlerSqlx) GetIsActiveSqlx(w http.ResponseWriter, r *http.Request) {
-
-	response := GetIsActive{}
-
-	isActive := models.GetIsActiveSqlx(h.db.DB)
-
-	response.Status = 1
-	response.Active = isActive
-
-	w.Header().Set("content-type", "application/json")
-	json.NewEncoder(w).Encode(response)
-}
-
-// swagger:route GET /activity/lasthour activity activityLasthour
-// Get list of last hour of Activity .... or the last value inserted
-//
-// responses:
-//  401: CommonError
-//  200: GetActivities
-func (h *BaseHandlerSqlx) GetActivitiesLastHourSqlx(w http.ResponseWriter, r *http.Request) {
-	response := GetActivities{}
-
-	activities := models.GetActivitiesLastHourSqlx(h.db.DB)
-
-	response.Status = 1
-	response.Message = lang.Get("success")
-	response.Data = activities
-
-	w.Header().Set("content-type", "application/json")
-	json.NewEncoder(w).Encode(response)
-}
 
 // swagger:route POST /activity/insert activity addActivity
 // Create a new Activity value
@@ -97,16 +45,6 @@ func (h *BaseHandlerSqlx) PostActivitySqlx(w http.ResponseWriter, r *http.Reques
 } */
 
 
-
-
-
-
-
-
-
-
-
-
 namespace HouseduinoBackEnd.Controllers
 {
     [ApiController]
@@ -127,16 +65,75 @@ namespace HouseduinoBackEnd.Controllers
 		/// <remarks>Awesomeness!</remarks>
 		/// <response code="200">Operazione effettuata</response>
 		/// <response code="400">Errore</response>
-		[ProducesResponseType(typeof(Activities), 200)]
+		[ProducesResponseType(typeof(ResponseActivity), 200)]
 		[ProducesResponseType(typeof(IDictionary<string, string>), 400)]
 		[ProducesResponseType(500)]
         [HttpGet("all")] 
-        public Activities GetAll()
+        public ResponseActivity GetAll()
         {
-            var activities = new Activities();
-			activities.Elements=new List<Activity>();
+            var response = new ResponseActivity();
+			var db = new DatabaseHelper();
+            response = db.GetActivities().Result;
 
-			return activities;
+			return response;
+        }
+
+        /// <summary>
+        /// Ritorna le attività registrate nell'ultima ora
+        /// </summary>
+        /// <remarks>Awesomeness!</remarks>
+        /// <response code="200">Operazione effettuata</response>
+        /// <response code="400">Errore</response>
+        [ProducesResponseType(typeof(ResponseActivity), 200)]
+        [ProducesResponseType(typeof(IDictionary<string, string>), 400)]
+        [ProducesResponseType(500)]
+        [HttpGet("lasthour")]
+        public ResponseActivity GetLastHour()
+        {
+            var response = new ResponseActivity();
+            var db = new DatabaseHelper();
+            response = db.GetLastHour().Result;
+
+            return response;
+        }
+
+        /// <summary>
+        /// Ritorna se il sensore è online o offline
+        /// </summary>
+        /// <remarks>Awesomeness!</remarks>
+        /// <response code="200">Operazione effettuata</response>
+        /// <response code="400">Errore</response>
+        [ProducesResponseType(typeof(ResponseIsActive), 200)]
+        [ProducesResponseType(typeof(IDictionary<string, string>), 400)]
+        [ProducesResponseType(500)]
+        [HttpGet("isactive")]
+        public ResponseIsActive GetIsActive()
+        {
+            var response = new ResponseIsActive();
+            var db = new DatabaseHelper();
+            response = db.GetIsActive().Result;
+
+            return response;
+        }
+
+
+        /// <summary>
+        /// Inserisce un'attività
+        /// </summary>
+        /// <remarks>Awesomeness!</remarks>
+        /// <response code="200">Operazione effettuata</response>
+        /// <response code="400">Errore</response>
+        [ProducesResponseType(typeof(ResponseInsert), 200)]
+        [ProducesResponseType(typeof(IDictionary<string, string>), 400)]
+        [ProducesResponseType(500)]
+        [HttpPost("insert")]
+        public ResponseInsert Insert()
+        {
+            var response = new ResponseInsert();
+            var db = new DatabaseHelper();
+            response = db.Insert().Result;
+
+            return response;
         }
     }
 }

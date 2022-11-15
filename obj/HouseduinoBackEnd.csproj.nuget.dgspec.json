@@ -1,38 +1,31 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Sorgenti\\Personali\\Web\\HouseduinoBackEnd\\HouseduinoBackEnd.csproj": {}
+    "/Users/luigiamoroso/Documents/Sorgenti/HouseduinoBackEnd/HouseduinoBackEnd.csproj": {}
   },
   "projects": {
-    "D:\\Sorgenti\\Personali\\Web\\HouseduinoBackEnd\\HouseduinoBackEnd.csproj": {
+    "/Users/luigiamoroso/Documents/Sorgenti/HouseduinoBackEnd/HouseduinoBackEnd.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Sorgenti\\Personali\\Web\\HouseduinoBackEnd\\HouseduinoBackEnd.csproj",
+        "projectUniqueName": "/Users/luigiamoroso/Documents/Sorgenti/HouseduinoBackEnd/HouseduinoBackEnd.csproj",
         "projectName": "HouseduinoBackEnd",
-        "projectPath": "D:\\Sorgenti\\Personali\\Web\\HouseduinoBackEnd\\HouseduinoBackEnd.csproj",
-        "packagesPath": "C:\\Users\\l.amoroso\\.nuget\\packages\\",
-        "outputPath": "D:\\Sorgenti\\Personali\\Web\\HouseduinoBackEnd\\obj\\",
+        "projectPath": "/Users/luigiamoroso/Documents/Sorgenti/HouseduinoBackEnd/HouseduinoBackEnd.csproj",
+        "packagesPath": "/Users/luigiamoroso/.nuget/packages/",
+        "outputPath": "/Users/luigiamoroso/Documents/Sorgenti/HouseduinoBackEnd/obj/",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
-        ],
         "configFilePaths": [
-          "C:\\Users\\l.amoroso\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "/Users/luigiamoroso/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
-          "net5.0"
+          "net6.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "/usr/local/share/dotnet/library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "net5.0": {
-            "targetAlias": "net5.0",
+          "net6.0": {
+            "targetAlias": "net6.0",
             "projectReferences": {}
           }
         },
@@ -43,8 +36,8 @@
         }
       },
       "frameworks": {
-        "net5.0": {
-          "targetAlias": "net5.0",
+        "net6.0": {
+          "targetAlias": "net6.0",
           "dependencies": {
             "Npgsql": {
               "target": "Package",
@@ -61,7 +54,8 @@
             "net47",
             "net471",
             "net472",
-            "net48"
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -73,7 +67,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.413\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.100/RuntimeIdentifierGraph.json"
         }
       }
     }
