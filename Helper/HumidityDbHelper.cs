@@ -1,30 +1,31 @@
-using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
+﻿using System;
 using HouseduinoBackEnd.Models;
 using Npgsql;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+using Object = HouseduinoBackEnd.Models.Object;
 
 namespace HouseduinoBackEnd.Helper
 {
-    public class DatabaseHelper
+    public class HumidityDbHelper
     {
         string connectionString;
-        public DatabaseHelper()
+        public HumidityDbHelper()
         {
             connectionString = $"Host={Constants.DBHOST};port={Constants.DBPORT}; Username={Constants.DBUSERNAME};Password={Constants.DBPASSWORD}; Database={Constants.DBNAME}";
             //connectionString = $"host={Constants.DBHOST} port={Constants.DBPORT} user={Constants.DBUSERNAME} password={Constants.DBPASSWORD} dbname={Constants.DBNAME} sslmode=disable";
         }
 
-        private async Task<ResponseActivityById> GetActivityById(Int32 idValore)
+        private async Task<ResponseObjectById> GetObjectById(Int32 idValore)
         {
-            var response = new ResponseActivityById();
+            var response = new ResponseObjectById();
 
             try
             {
                 response.status = 1;
                 response.message = "success";
 
-                var query = string.Format(Queries.ACTIVITY_GET_BY_ID, idValore);
+                var query = string.Format(Queries.HUMIDITY_GET_BY_ID, idValore);
 
                 await using var dataSource = NpgsqlDataSource.Create(connectionString);
                 await using var command = dataSource.CreateCommand(query);
@@ -32,12 +33,12 @@ namespace HouseduinoBackEnd.Helper
 
                 while (await rdr.ReadAsync())
                 {
-                    var activity = new Activity();
+                    var activity = new Object();
                     activity.Id = rdr.GetInt32(0);
-                    activity.Valore = rdr.GetInt32(1);
+                    activity.Valore = rdr.GetDouble(1);
                     activity.DateInsert = rdr.GetFieldValue<DateTime>(2);
 
-                    response.data= activity;
+                    response.data = activity;
                 }
             }
             catch (Exception ex)
@@ -50,26 +51,26 @@ namespace HouseduinoBackEnd.Helper
             return response;
         }
 
-        public async Task<ResponseActivity> GetActivities()
+        public async Task<ResponseObject> GetAll()
         {
-            var response = new ResponseActivity();
+            var response = new ResponseObject();
 
-            response.data = new List<Activity>();
+            response.data = new List<Object>();
             try
             {
                 response.status = 1;
                 response.message = "success";
 
                 await using var dataSource = NpgsqlDataSource.Create(connectionString);
-                await using var command = dataSource.CreateCommand(Queries.ACTIVITY_GET);
+                await using var command = dataSource.CreateCommand(Queries.HUMIDITY_GET);
                 await using var rdr = await command.ExecuteReaderAsync();
 
                 while (await rdr.ReadAsync())
                 {
-                    var activity = new Activity();
-                     activity.Id = rdr.GetInt32(0);
-                     activity.Valore = rdr.GetInt32(1);
-                     activity.DateInsert = rdr.GetFieldValue<DateTime>(2);
+                    var activity = new Object();
+                    activity.Id = rdr.GetInt32(0);
+                    activity.Valore = rdr.GetDouble(1);
+                    activity.DateInsert = rdr.GetFieldValue<DateTime>(2);
 
                     response.data.Add(activity);
                 }
@@ -84,11 +85,11 @@ namespace HouseduinoBackEnd.Helper
             return response;
         }
 
-        public async Task<ResponseActivity> GetLastHour()
+        public async Task<ResponseObject> GetLastHour()
         {
-            var response = new ResponseActivity();
+            var response = new ResponseObject();
 
-            response.data = new List<Activity>();
+            response.data = new List<Object>();
             try
             {
                 response.status = 1;
@@ -96,7 +97,7 @@ namespace HouseduinoBackEnd.Helper
 
                 var dtFine = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss");
                 var dtInizio = DateTime.Now.AddHours(-1).ToString("yyyy/MM/dd HH:mm:ss");
-                var query = string.Format(Queries.ACTIVITY_GET_LASTHOUR,dtFine,dtFine);
+                var query = string.Format(Queries.HUMIDITY_GET_LAST_HOUR, dtInizio, dtFine);
 
                 await using var dataSource = NpgsqlDataSource.Create(connectionString);
                 await using var command = dataSource.CreateCommand(query);
@@ -104,9 +105,9 @@ namespace HouseduinoBackEnd.Helper
 
                 while (await rdr.ReadAsync())
                 {
-                    var activity = new Activity();
+                    var activity = new Object();
                     activity.Id = rdr.GetInt32(0);
-                    activity.Valore = rdr.GetInt32(1);
+                    activity.Valore = rdr.GetDouble(1);
                     activity.DateInsert = rdr.GetFieldValue<DateTime>(2);
 
                     response.data.Add(activity);
@@ -122,26 +123,34 @@ namespace HouseduinoBackEnd.Helper
             return response;
         }
 
-        public async Task<ResponseIsActive> GetIsActive()
+        public async Task<ResponseObject> GetLast()
         {
-            var response = new ResponseIsActive();
+            var response = new ResponseObject();
 
-
+            response.data = new List<Object>();
             try
             {
                 response.status = 1;
                 response.message = "success";
 
-                await using var dataSource = NpgsqlDataSource.Create(connectionString);
-                await using var command = dataSource.CreateCommand(Queries.ACTIVITY_ISACTIVE);
-                Int64 rdr = (Int64)await command.ExecuteScalarAsync();
 
-                response.active = rdr > 0;
+                await using var dataSource = NpgsqlDataSource.Create(connectionString);
+                await using var command = dataSource.CreateCommand(Queries.HUMIDITY_GET);
+                await using var rdr = await command.ExecuteReaderAsync();
+
+                while (await rdr.ReadAsync())
+                {
+                    var activity = new Object();
+                    activity.Id = rdr.GetInt32(0);
+                    activity.Valore = rdr.GetDouble(1);
+                    activity.DateInsert = rdr.GetFieldValue<DateTime>(2);
+
+                    response.data.Add(activity);
+                }
             }
             catch (Exception ex)
             {
                 response.status = 0;
-                response.active = false;
                 response.message = ex.Message;
             }
 
@@ -149,22 +158,23 @@ namespace HouseduinoBackEnd.Helper
             return response;
         }
 
-        public async Task<ResponseInsert> Insert()
+        public async Task<ResponseObjectInsert> Insert(RequestObject request)
         {
-            var response = new ResponseInsert();
+            var response = new ResponseObjectInsert();
 
 
             try
             {
                 response.status = 1;
                 response.message = "success";
+                var query = string.Format(Queries.HUMIDITY_POST_DATA, request.valore);
 
                 await using var dataSource = NpgsqlDataSource.Create(connectionString);
-                await using var command = dataSource.CreateCommand(Queries.ACTIVITY_INSERT);
+                await using var command = dataSource.CreateCommand(query);
                 Int32 rdr = (Int32)await command.ExecuteScalarAsync();
                 var idValore = rdr;
 
-                var responseById = GetActivityById(rdr);
+                var responseById = GetObjectById(rdr);
 
                 response.data = responseById.Result.data;
 
@@ -178,5 +188,42 @@ namespace HouseduinoBackEnd.Helper
 
             return response;
         }
+
+        public async Task<ResponseObject> GetShowData(int recordNumber)
+        {
+            var response = new ResponseObject();
+
+            response.data = new List<Object>();
+            try
+            {
+                response.status = 1;
+                response.message = "success";
+                var query = string.Format(Queries.HUMIDITY_GET_SHOWDATA, recordNumber);
+
+                await using var dataSource = NpgsqlDataSource.Create(connectionString);
+                await using var command = dataSource.CreateCommand(query);
+                await using var rdr = await command.ExecuteReaderAsync();
+
+                while (await rdr.ReadAsync())
+                {
+                    var activity = new Object();
+                    activity.Id = rdr.GetInt32(0);
+                    activity.Valore = rdr.GetDouble(1);
+                    activity.DateInsert = rdr.GetFieldValue<DateTime>(2);
+
+                    response.data.Add(activity);
+                }
+            }
+            catch (Exception ex)
+            {
+                response.status = 0;
+                response.message = ex.Message;
+            }
+
+
+            return response;
+        }
     }
+
 }
+

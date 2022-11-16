@@ -17,6 +17,11 @@
 /Users/luigiamoroso/Documents/Sorgenti/HouseduinoBackEnd/obj/Debug/net6.0/HouseduinoBackEnd.csproj.CoreCompileInputs.cache
 /Users/luigiamoroso/Documents/Sorgenti/HouseduinoBackEnd/obj/Debug/net6.0/HouseduinoBackEnd.MvcApplicationPartsAssemblyInfo.cs
 /Users/luigiamoroso/Documents/Sorgenti/HouseduinoBackEnd/obj/Debug/net6.0/HouseduinoBackEnd.MvcApplicationPartsAssemblyInfo.cache
+/Users/luigiamoroso/Documents/Sorgenti/HouseduinoBackEnd/obj/Debug/net6.0/staticwebassets/msbuild.HouseduinoBackEnd.Microsoft.AspNetCore.StaticWebAssets.props
+/Users/luigiamoroso/Documents/Sorgenti/HouseduinoBackEnd/obj/Debug/net6.0/staticwebassets/msbuild.build.HouseduinoBackEnd.props
+/Users/luigiamoroso/Documents/Sorgenti/HouseduinoBackEnd/obj/Debug/net6.0/staticwebassets/msbuild.buildMultiTargeting.HouseduinoBackEnd.props
+/Users/luigiamoroso/Documents/Sorgenti/HouseduinoBackEnd/obj/Debug/net6.0/staticwebassets/msbuild.buildTransitive.HouseduinoBackEnd.props
+/Users/luigiamoroso/Documents/Sorgenti/HouseduinoBackEnd/obj/Debug/net6.0/staticwebassets.pack.json
 /Users/luigiamoroso/Documents/Sorgenti/HouseduinoBackEnd/obj/Debug/net6.0/staticwebassets.build.json
 /Users/luigiamoroso/Documents/Sorgenti/HouseduinoBackEnd/obj/Debug/net6.0/staticwebassets.development.json
 /Users/luigiamoroso/Documents/Sorgenti/HouseduinoBackEnd/obj/Debug/net6.0/scopedcss/bundle/HouseduinoBackEnd.styles.css
@@ -26,8 +31,3 @@
 /Users/luigiamoroso/Documents/Sorgenti/HouseduinoBackEnd/obj/Debug/net6.0/HouseduinoBackEnd.pdb
 /Users/luigiamoroso/Documents/Sorgenti/HouseduinoBackEnd/obj/Debug/net6.0/HouseduinoBackEnd.genruntimeconfig.cache
 /Users/luigiamoroso/Documents/Sorgenti/HouseduinoBackEnd/obj/Debug/net6.0/ref/HouseduinoBackEnd.dll
-/Users/luigiamoroso/Documents/Sorgenti/HouseduinoBackEnd/obj/Debug/net6.0/staticwebassets/msbuild.HouseduinoBackEnd.Microsoft.AspNetCore.StaticWebAssets.props
-/Users/luigiamoroso/Documents/Sorgenti/HouseduinoBackEnd/obj/Debug/net6.0/staticwebassets/msbuild.build.HouseduinoBackEnd.props
-/Users/luigiamoroso/Documents/Sorgenti/HouseduinoBackEnd/obj/Debug/net6.0/staticwebassets/msbuild.buildMultiTargeting.HouseduinoBackEnd.props
-/Users/luigiamoroso/Documents/Sorgenti/HouseduinoBackEnd/obj/Debug/net6.0/staticwebassets/msbuild.buildTransitive.HouseduinoBackEnd.props
-/Users/luigiamoroso/Documents/Sorgenti/HouseduinoBackEnd/obj/Debug/net6.0/staticwebassets.pack.json

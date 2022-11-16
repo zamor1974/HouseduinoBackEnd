@@ -20,6 +20,7 @@ namespace HouseduinoBackEnd.Helper
         public const string ALTITUDE_GET_LASTHOUR = "SELECT id,valore,data_inserimento FROM altitudine where data_inserimento  >= '{0}' AND data_inserimento <= '{1}'";
         public const string ALTITUDE_GET_SHOWDATA = "WITH t AS (SELECT id,valore,data_inserimento FROM altitudine ORDER BY data_inserimento DESC LIMIT {0}) SELECT id,valore,data_inserimento FROM t ORDER BY data_inserimento ASC";
         public const string ALTITUDE_POST_DATA = "insert into altitudine (valore,data_inserimento) values ({0},CURRENT_TIMESTAMP) RETURNING id";
+        public const string ALTITUDE_GET_BY_ID = "SELECT id, valore, data_inserimento FROM altitudine where id = {0}";
 
         public const string ACTIVITY_ISACTIVE = "select count(id) as contatore from attivita where  data_inserimento <=now() and data_inserimento >= now() - INTERVAL '1 MINUTES'";
         public const string ACTIVITY_GET = "SELECT id,0, data_inserimento FROM attivita order by id desc limit 100";
@@ -31,39 +32,45 @@ namespace HouseduinoBackEnd.Helper
         public const string MESSAGE_GET_LAST = "SELECT id, messaggio, data_inserimento FROM messaggio where id = (select max(id) from attivita)";
         public const string MESSAGE_GET_LASTHOUR = "SELECT id,messaggio, data_inserimento FROM messaggio where data_inserimento  >= '{0}' AND data_inserimento <= '{1}'";
         public const string MESSAGE_POST_DATA = "insert into messaggio (messaggio,data_inserimento) values ('{0}',CURRENT_TIMESTAMP) RETURNING id";
+        public const string MESSAGE_GET_BY_ID = "SELECT id, messaggio, data_inserimento FROM messaggio where id = {0}";
 
         public const string RAIN_GET = "SELECT id, valore, data_inserimento FROM pioggia order by id desc limit 100";
         public const string RAIN_GET_LAST = "SELECT id, valore, data_inserimento FROM pioggia where id = (select max(id) from pioggia)";
         public const string RAIN_GET_LAST_HOUR = "SELECT id,valore,data_inserimento FROM pioggia where data_inserimento  >= >= '{0}' AND data_inserimento <= '{1}'";
         public const string RAIN_POST_DATA = "insert into pioggia (valore,data_inserimento) values ({0},CURRENT_TIMESTAMP) RETURNING id";
         public const string RAIN_GET_SHOWDATA = "WITH t AS (SELECT id,valore,data_inserimento FROM pioggia ORDER BY data_inserimento DESC LIMIT {0}) SELECT id,valore,data_inserimento FROM t ORDER BY data_inserimento ASC";
+        public const string RAIN_GET_BY_ID = "SELECT id, valore, data_inserimento FROM pioggia where id = {0}";
 
         public const string PRESSURE_GET = "SELECT id, valore, data_inserimento FROM pressione order by id desc limit 100";
         public const string PRESSURE_GET_LAST = "SELECT id, valore, data_inserimento FROM pressione where id = (select max(id) from pressione)";
         public const string PRESSURE_GET_LAST_HOUR = "SELECT id,valore,data_inserimento FROM pressione where data_inserimento  >= '{0}' AND data_inserimento <= '{1}'";
         public const string PRESSURE_POST_DATA = "insert into pressione (valore,data_inserimento) values ({0},CURRENT_TIMESTAMP) RETURNING id";
         public const string PRESSURE_GET_SHOWDATA = "WITH t AS (SELECT id,valore,data_inserimento FROM pressione ORDER BY data_inserimento DESC LIMIT {0}) SELECT id,valore,data_inserimento FROM t ORDER BY data_inserimento ASC";
+        public const string PRESSURE_GET_BY_ID = "SELECT id, valore, data_inserimento FROM pressione where id = {0}";
 
         public const string TEMPERATURE_GET = "SELECT id, valore, data_inserimento FROM temperatura order by id desc limit 100";
         public const string TEMPERATURE_GET_LAST = "SELECT id, valore, data_inserimento FROM temperatura where id = (select max(id) from temperatura)";
         public const string TEMPERATURE_GET_LAST_HOUR = "SELECT id,valore,data_inserimento FROM temperatura where data_inserimento >= '{0}' AND data_inserimento <= '{1}'";
         public const string TEMPERATURE_POST_DATA = "insert into temperatura (valore,data_inserimento) values ({0},CURRENT_TIMESTAMP) RETURNING id";
         public const string TEMPERATURE_GET_SHOWDATA = "WITH t AS (SELECT id,valore,data_inserimento FROM temperatura ORDER BY data_inserimento DESC LIMIT {0}) SELECT id,valore,data_inserimento FROM t ORDER BY data_inserimento ASC";
+        public const string TEMPERATURE_GET_BY_ID = "SELECT id, valore, data_inserimento FROM temperatura where id = {0}";
 
         public const string HUMIDITY_GET = "SELECT id, valore, data_inserimento FROM umidita order by id desc limit 100";
         public const string HUMIDITY_GET_LAST = "SELECT id, valore, data_inserimento FROM umidita where id = (select max(id) from umidita)";
         public const string HUMIDITY_GET_LAST_HOUR = "SELECT id,valore,data_inserimento FROM umidita where data_inserimento  >= '{0}' AND data_inserimento <= '{1}'";
         public const string HUMIDITY_POST_DATA = "insert into umidita (valore,data_inserimento) values ({0},CURRENT_TIMESTAMP) RETURNING id";
         public const string HUMIDITY_GET_SHOWDATA = "WITH t AS (SELECT id,valore,data_inserimento FROM umidita ORDER BY data_inserimento DESC LIMIT {0}) SELECT id,valore,data_inserimento FROM t ORDER BY data_inserimento ASC";
+        public const string HUMIDITY_GET_BY_ID = "SELECT id, valore, data_inserimento FROM umidita where id = {0}";
 
         public const string PLANT_GET = "SELECT id, nome, data_inserimento FROM pianta order by id asc";
         public const string PLANT_GET2 = "SELECT id, nome, data_inserimento FROM pianta where id={0} order by id asc";
         public const string PLANT_HUMIDITY_GET = "SELECT id, id_pianta, valore, data_inserimento FROM pianta_umidita  where id_pianta ={0}  order by id desc limit 100";
         public const string PLANT_HUMIDITY_GET_LAST = "SELECT id, id_pianta, valore, data_inserimento FROM pianta_umidita where id = (select max(id) from pianta_umidita where id_pianta={0})";
-        public const string PLANT_HUMIDITY_GET_LAST_HOUR = "SELECT id, id_pianta,valore,data_inserimento FROM pianta_umidita where id_pianta =%s and data_inserimento  >= '{0}' AND data_inserimento <= '{1}'";
+        public const string PLANT_HUMIDITY_GET_LAST_HOUR = "SELECT id, id_pianta,valore,data_inserimento FROM pianta_umidita where id_pianta ={2} and data_inserimento  >= '{0}' AND data_inserimento <= '{1}'";
         public const string PLANT_HUMIDITY_GET_LAST_VALUE = "select pu.id, p.nome,pu.valore ,pu.data_inserimento  from pianta p join pianta_umidita pu on p.id =pu.id_pianta  where pu.id=(select max(id) from pianta_umidita where id_pianta={0})";
         public const string PLANT_HUMIDITY_POST_DATA = "insert into pianta_umidita (id_pianta,valore) values ({0},{1}) RETURNING id";
         public const string PLANT_HUMIDITY_GET_SHOWDATA = "WITH t AS (SELECT id, id_pianta,valore,data_inserimento FROM pianta_umidita  where id_pianta ={0} ORDER BY data_inserimento DESC LIMIT {1}) SELECT id, id_pianta,valore,data_inserimento FROM t  where id_pianta ={0} ORDER BY data_inserimento ASC";
+        public const string PLANT_GET_BY_ID = "SELECT id, nome, data_inserimento FROM pianta where id = {0}";
 
         public const string MOTOR_GET_ALL = "SELECT id, nome, data_inserimento FROM pianta order by id asc";
         public const string MOTOR_GET = "select pu.valore from pianta_umidita pu where pu.id =(select max(pu.id) from pianta_umidita pu where pu.id_pianta =%s and pu.data_inserimento > current_timestamp  -INTERVAL '10 MINUTE')";

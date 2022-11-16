@@ -8,43 +8,6 @@ using HouseduinoBackEnd.Models;
 using HouseduinoBackEnd.Helper;
 using System.Reflection;
 
-
-/* 
-
-
-// swagger:route POST /activity/insert activity addActivity
-// Create a new Activity value
-//
-// responses:
-//  401: CommonError
-//  200: GetActivity
-func (h *BaseHandlerSqlx) PostActivitySqlx(w http.ResponseWriter, r *http.Request) {
-	w.Header().Set("content-type", "application/json")
-	response := GetActivity{}
-
-	decoder := json.NewDecoder(r.Body)
-	var reqActivity *models.ReqAddActivity
-	err := decoder.Decode(&reqActivity)
-	//fmt.Println(err)
-
-	if err != nil {
-		json.NewEncoder(w).Encode(ErrHandler(lang.Get("invalid_request")))
-		return
-	}
-
-	activity, errmessage := models.PostActivitySqlx(h.db.DB, reqActivity)
-	if errmessage != "" {
-		json.NewEncoder(w).Encode(ErrHandler(errmessage))
-		return
-	}
-
-	response.Status = 1
-	response.Message = lang.Get("insert_success")
-	response.Data = activity
-	json.NewEncoder(w).Encode(response)
-} */
-
-
 namespace HouseduinoBackEnd.Controllers
 {
     [ApiController]
@@ -65,15 +28,15 @@ namespace HouseduinoBackEnd.Controllers
 		/// <remarks>Awesomeness!</remarks>
 		/// <response code="200">Operazione effettuata</response>
 		/// <response code="400">Errore</response>
-		[ProducesResponseType(typeof(ResponseActivity), 200)]
+		[ProducesResponseType(typeof(ResponseObject), 200)]
 		[ProducesResponseType(typeof(IDictionary<string, string>), 400)]
 		[ProducesResponseType(500)]
         [HttpGet("all")] 
-        public ResponseActivity GetAll()
+        public ResponseObject GetAll()
         {
-            var response = new ResponseActivity();
-			var db = new DatabaseHelper();
-            response = db.GetActivities().Result;
+            var response = new ResponseObject();
+			var db = new ActivityDbHelper();
+            response = db.GetAll().Result;
 
 			return response;
         }
@@ -84,14 +47,14 @@ namespace HouseduinoBackEnd.Controllers
         /// <remarks>Awesomeness!</remarks>
         /// <response code="200">Operazione effettuata</response>
         /// <response code="400">Errore</response>
-        [ProducesResponseType(typeof(ResponseActivity), 200)]
+        [ProducesResponseType(typeof(ResponseObject), 200)]
         [ProducesResponseType(typeof(IDictionary<string, string>), 400)]
         [ProducesResponseType(500)]
         [HttpGet("lasthour")]
-        public ResponseActivity GetLastHour()
+        public ResponseObject GetLastHour()
         {
-            var response = new ResponseActivity();
-            var db = new DatabaseHelper();
+            var response = new ResponseObject();
+            var db = new ActivityDbHelper();
             response = db.GetLastHour().Result;
 
             return response;
@@ -103,14 +66,14 @@ namespace HouseduinoBackEnd.Controllers
         /// <remarks>Awesomeness!</remarks>
         /// <response code="200">Operazione effettuata</response>
         /// <response code="400">Errore</response>
-        [ProducesResponseType(typeof(ResponseIsActive), 200)]
+        [ProducesResponseType(typeof(ResponseObjectIsActive), 200)]
         [ProducesResponseType(typeof(IDictionary<string, string>), 400)]
         [ProducesResponseType(500)]
         [HttpGet("isactive")]
-        public ResponseIsActive GetIsActive()
+        public ResponseObjectIsActive GetIsActive()
         {
-            var response = new ResponseIsActive();
-            var db = new DatabaseHelper();
+            var response = new ResponseObjectIsActive();
+            var db = new ActivityDbHelper();
             response = db.GetIsActive().Result;
 
             return response;
@@ -123,14 +86,14 @@ namespace HouseduinoBackEnd.Controllers
         /// <remarks>Awesomeness!</remarks>
         /// <response code="200">Operazione effettuata</response>
         /// <response code="400">Errore</response>
-        [ProducesResponseType(typeof(ResponseInsert), 200)]
+        [ProducesResponseType(typeof(ResponseObjectInsert), 200)]
         [ProducesResponseType(typeof(IDictionary<string, string>), 400)]
         [ProducesResponseType(500)]
         [HttpPost("insert")]
-        public ResponseInsert Insert()
+        public ResponseObjectInsert Insert()
         {
-            var response = new ResponseInsert();
-            var db = new DatabaseHelper();
+            var response = new ResponseObjectInsert();
+            var db = new ActivityDbHelper();
             response = db.Insert().Result;
 
             return response;
