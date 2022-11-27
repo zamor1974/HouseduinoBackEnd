@@ -1,21 +1,19 @@
 ﻿<Properties GitUserInfo="UsingGIT" StartupConfiguration="{9F1FACBC-D4AF-4C26-B511-4244522420D4}|Default">
   <MonoDevelop.Ide.ItemProperties.HouseduinoBackEnd PreferredExecutionTarget="/Applications/Google Chrome.app" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Models/AltitudeModel.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Helper/WeatherDbHelper.cs">
     <Files>
-      <File FileName="Controllers/ActivityController.cs" Line="139" Column="1" />
-      <File FileName="Controllers/AltitudeController.cs" Line="28" Column="48" />
-      <File FileName="Models/ActivityModel.cs" Line="54" Column="1" />
-      <File FileName="Models/AltitudeModel.cs" Line="57" Column="1" />
+      <File FileName="Helper/WeatherDbHelper.cs" Line="21" Column="36" />
+      <File FileName="Controllers/WeatherController.cs" Line="36" Column="37" />
+      <File FileName="Controllers/TemperatureController.cs" Line="1" Column="1" />
+      <File FileName="Models/WeatherModel.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="HouseduinoBackEnd" expanded="True">
             <Node name="HouseduinoBackEnd" expanded="True">
-              <Node name="Controllers" expanded="True" />
-              <Node name="Helper" expanded="True" />
-              <Node name="Models" expanded="True">
-                <Node name="AltitudeModel.cs" selected="True" />
+              <Node name="Helper" expanded="True">
+                <Node name="WeatherDbHelper.cs" selected="True" />
               </Node>
             </Node>
           </Node>
