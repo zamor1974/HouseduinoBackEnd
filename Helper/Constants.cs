@@ -72,6 +72,20 @@ namespace HouseduinoBackEnd.Helper
         public const string PLANT_HUMIDITY_GET_SHOWDATA = "WITH t AS (SELECT id, id_pianta,valore,data_inserimento FROM pianta_umidita  where id_pianta ={0} ORDER BY data_inserimento DESC LIMIT {1}) SELECT id, id_pianta,valore,data_inserimento FROM t  where id_pianta ={0} ORDER BY data_inserimento ASC";
         public const string PLANT_GET_BY_ID = "SELECT id, nome, data_inserimento FROM pianta where id = {0}";
 
+        public const string AIRQUALITY_GET = "SELECT id, valore, is_valore, data_inserimento FROM qualita_aria order by id desc limit 100";
+        public const string AIRQUALITY_GET_LAST = "SELECT id, valore, is_valore, data_inserimento FROM qualita_aria where id = (select max(id) from qualita_aria)";
+        public const string AIRQUALITY_GET_LAST_HOUR = "SELECT id,valore, is_valore,data_inserimento FROM qualita_aria where data_inserimento >= '{0}' AND data_inserimento <= '{1}'";
+        public const string AIRQUALITY_POST_DATA = "insert into qualita_aria (valore,is_valore,data_inserimento) values ({0},{1},CURRENT_TIMESTAMP) RETURNING id";
+        public const string AIRQUALITY_GET_SHOWDATA = "WITH t AS (SELECT id,valore,is_valore,data_inserimento FROM qualita_aria ORDER BY data_inserimento DESC LIMIT {0}) SELECT id,valore,is_valore,data_inserimento FROM t ORDER BY data_inserimento ASC";
+        public const string AIRQUALITY_GET_BY_ID = "SELECT id, valore,is_valore, data_inserimento FROM qualita_aria where id = {0}";
+
+        public const string LIGHTNESS_GET = "SELECT id, valore, data_inserimento FROM luminosita order by id desc limit 100";
+        public const string LIGHTNESS_GET_LAST = "SELECT id, valore, data_inserimento FROM luminosita where id = (select max(id) from luminosita)";
+        public const string LIGHTNESS_GET_LAST_HOUR = "SELECT id,valore,data_inserimento FROM luminosita where data_inserimento >= '{0}' AND data_inserimento <= '{1}'";
+        public const string LIGHTNESS_POST_DATA = "insert into luminosita (valore,data_inserimento) values ({0},CURRENT_TIMESTAMP) RETURNING id";
+        public const string LIGHTNESS_GET_SHOWDATA = "WITH t AS (SELECT id,valore,data_inserimento FROM luminosita ORDER BY data_inserimento DESC LIMIT {0}) SELECT id,valore,data_inserimento FROM t ORDER BY data_inserimento ASC";
+        public const string LIGHTNESS_GET_BY_ID = "SELECT id, valore, data_inserimento FROM luminosita where id = {0}";
+
         public const string MOTOR_GET_ALL = "SELECT id, nome, data_inserimento FROM pianta order by id asc";
         public const string MOTOR_GET = "select pu.valore from pianta_umidita pu where pu.id =(select max(pu.id) from pianta_umidita pu where pu.id_pianta =%s and pu.data_inserimento > current_timestamp  -INTERVAL '10 MINUTE')";
 

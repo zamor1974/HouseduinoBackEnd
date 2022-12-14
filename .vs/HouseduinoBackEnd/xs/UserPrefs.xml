@@ -1,11 +1,16 @@
-﻿<Properties GitUserInfo="UsingGIT" StartupConfiguration="{9F1FACBC-D4AF-4C26-B511-4244522420D4}|Default">
+﻿<Properties StartupConfiguration="{9F1FACBC-D4AF-4C26-B511-4244522420D4}|Default" GitUserInfo="UsingGIT">
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.ItemProperties.HouseduinoBackEnd PreferredExecutionTarget="/Applications/Google Chrome.app" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Helper/WeatherDbHelper.cs">
     <Files>
       <File FileName="Helper/WeatherDbHelper.cs" Line="21" Column="36" />
-      <File FileName="Controllers/WeatherController.cs" Line="36" Column="37" />
-      <File FileName="Controllers/TemperatureController.cs" Line="1" Column="1" />
-      <File FileName="Models/WeatherModel.cs" Line="1" Column="1" />
+      <File FileName="Controllers/WeatherController.cs" />
+      <File FileName="Controllers/TemperatureController.cs" />
+      <File FileName="Models/WeatherModel.cs" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -21,10 +26,5 @@
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
-  </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
 </Properties>
