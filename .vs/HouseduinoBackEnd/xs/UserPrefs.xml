@@ -1,30 +1,26 @@
-﻿<Properties StartupConfiguration="{9F1FACBC-D4AF-4C26-B511-4244522420D4}|Default" GitUserInfo="UsingGIT">
+﻿<Properties GitUserInfo="UsingGIT" StartupConfiguration="{9F1FACBC-D4AF-4C26-B511-4244522420D4}|Default">
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MultiItemStartupConfigurations />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.HouseduinoBackEnd PreferredExecutionTarget="/Applications/Google Chrome.app" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Helper/WeatherDbHelper.cs">
     <Files>
-      <File FileName="Helper/WeatherDbHelper.cs" Line="21" Column="36" />
-      <File FileName="Controllers/WeatherController.cs" />
-      <File FileName="Controllers/TemperatureController.cs" />
-      <File FileName="Models/WeatherModel.cs" />
+      <File FileName="Helper/WeatherDbHelper.cs" Line="14" Column="33" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
-          <Node name="HouseduinoBackEnd" expanded="True">
+          <Node name="HouseduinoBackEnd" expanded="True" selected="True">
             <Node name="HouseduinoBackEnd" expanded="True">
-              <Node name="Helper" expanded="True">
-                <Node name="WeatherDbHelper.cs" selected="True" />
-              </Node>
+              <Node name="Helper" expanded="True" />
+              <Node name="Models" expanded="True" />
             </Node>
           </Node>
         </State>
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.ItemProperties.HouseduinoBackEnd PreferredExecutionTarget="/Applications/Google Chrome.app" />
 </Properties>
