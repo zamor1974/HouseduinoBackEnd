@@ -170,7 +170,7 @@ namespace HouseduinoBackEnd.Helper
             {
                 response.status = 1;
                 response.message = "success";
-                var query = string.Format(Queries.AIRQUALITY_POST_DATA, request.valore);
+                var query = string.Format(Queries.AIRQUALITY_POST_DATA, request.valore,request.isValore);
 
                 await using var dataSource = NpgsqlDataSource.Create(connectionString);
                 await using var command = dataSource.CreateCommand(query);

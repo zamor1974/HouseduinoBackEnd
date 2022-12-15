@@ -6,6 +6,7 @@ namespace HouseduinoBackEnd.Models
     public class RequestObject
     {
         public double valore { get; set; }
+        public bool isValore { get; set; }
     }
     public class ResponseObject
     {
@@ -65,7 +66,7 @@ namespace HouseduinoBackEnd.Models
 
     public class RequestObject2
     {
-        public double valore { get; set; }
+        public bool valore { get; set; }
     }
     public class ResponseObject2
     {

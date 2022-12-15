@@ -18,7 +18,7 @@ namespace HouseduinoBackEnd.Helper
         }
 
 
-        public async Task<Weather> GetWeather()
+        public Weather GetWeather()
         {
             var weather = new Weather();
             var dbTemperature = new TemperatureDbHelper();

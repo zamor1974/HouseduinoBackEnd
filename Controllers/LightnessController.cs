@@ -67,7 +67,7 @@ namespace HouseduinoBackEnd.Controllers
         [ProducesResponseType(typeof(IDictionary<string, string>), 400)]
         [ProducesResponseType(500)]
         [HttpPost("insert")]
-        public ResponseObjectInsert Insert(RequestObject2 request)
+        public ResponseObject2Insert Insert(RequestObject2 request)
         {
             var response = new ResponseObject2Insert();
             var db = new LightnessDbHelper();

@@ -33,7 +33,7 @@ namespace HouseduinoBackEnd.Controllers
         {
             var response = new Weather();
             var db = new WeatherDbHelper();
-            response = db.GetWeather().Result;
+            response = db.GetWeather();
 
             return response;
         }
