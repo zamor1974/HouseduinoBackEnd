@@ -18,5 +18,8 @@ namespace HouseduinoBackEnd.Models
 		public string WeatherPrevision { get; set; }
 		public string WeatherDescription { get; set; }
 		public string LastUpdate { get; set; }
-	}
+        public bool Lightness { get;  set; }
+        public double AirQuality { get;  set; }
+        public string ActualeDate { get;  set; }
+    }
 }

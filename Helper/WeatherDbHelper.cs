@@ -25,22 +25,26 @@ namespace HouseduinoBackEnd.Helper
             var dbPressure = new PressureDbHelper();
             var dbHumidity = new HumidityDbHelper();
             var dbActivity = new ActivityDbHelper();
+            var dbLightness = new LightnessDbHelper();
+            var dbAirQuality = new AirQualityDbHelper();
 
-            var temperature = dbTemperature.GetLast().Result.data.ToArray()[0].Valore;
+            var temperature = Math.Round(dbTemperature.GetLast().Result.data.ToArray()[0].Valore,2);
 
-            var humidity = dbHumidity.GetLast().Result.data.ToArray()[0].Valore;
+            var humidity = Math.Round(dbHumidity.GetLast().Result.data.ToArray()[0].Valore,2);
 
             var pressure = dbPressure.GetLast().Result.data.ToArray()[0].Valore;
-
+            var lightness = dbLightness.GetLast().Result.data.ToArray()[0].Valore;
+            var airQuality = dbAirQuality.GetLast().Result.data.ToArray()[0].Valore;
+            var dateNow = DateTime.Now;
             var lastUpdate = dbActivity.GetLast().Result.data.ToArray()[0].DateInsert;
             //var prevision = GetPrevision(db)
 
             weather.Temperature = temperature;
-
+            weather.Lightness = lightness;
             weather.Humidity = humidity;
-
+            weather.AirQuality = airQuality;
             weather.Pressure = pressure;
-
+            weather.ActualeDate = dateNow.ToString("dd/MM/yyyy HH:mm:ss");
             weather.LastUpdate = lastUpdate.ToString("dd/MM/yyyy HH:mm:ss");
 
 
