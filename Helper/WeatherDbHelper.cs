@@ -45,6 +45,7 @@ namespace HouseduinoBackEnd.Helper
             weather.AirQuality = airQuality;
             weather.Pressure = pressure;
             weather.ActualeDate = dateNow.ToString("dd/MM/yyyy HH:mm:ss");
+            weather.DayOfTheWeek = ((int)dateNow.DayOfWeek);
             weather.LastUpdate = lastUpdate.ToString("dd/MM/yyyy HH:mm:ss");
 
 
