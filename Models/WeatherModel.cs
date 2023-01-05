@@ -22,5 +22,6 @@ namespace HouseduinoBackEnd.Models
         public double AirQuality { get;  set; }
         public string ActualeDate { get;  set; }
         public int DayOfTheWeek { get;  set; }
+        public double Rain { get;  set; }
     }
 }

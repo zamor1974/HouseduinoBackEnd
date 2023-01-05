@@ -122,7 +122,39 @@ namespace HouseduinoBackEnd.Helper
 
             return response;
         }
+        public async Task<ResponseObject> GetLast()
+        {
+            var response = new ResponseObject();
 
+            response.data = new List<Object>();
+            try
+            {
+                response.status = 1;
+                response.message = "success";
+
+                await using var dataSource = NpgsqlDataSource.Create(connectionString);
+                await using var command = dataSource.CreateCommand(Queries.RAIN_GET_LAST);
+                await using var rdr = await command.ExecuteReaderAsync();
+
+                while (await rdr.ReadAsync())
+                {
+                    var activity = new Object();
+                    activity.Id = rdr.GetInt32(0);
+                    activity.Valore = rdr.GetDouble(1);
+                    activity.DateInsert = rdr.GetFieldValue<DateTime>(2);
+
+                    response.data.Add(activity);
+                }
+            }
+            catch (Exception ex)
+            {
+                response.status = 0;
+                response.message = ex.Message;
+            }
+
+
+            return response;
+        }
         public async Task<ResponseObjectInsert> Insert(RequestObject request)
         {
             var response = new ResponseObjectInsert();
