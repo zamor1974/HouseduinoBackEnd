@@ -1,34 +1,47 @@
-﻿<Properties StartupConfiguration="{9F1FACBC-D4AF-4C26-B511-4244522420D4}|Default" GitUserInfo="UsingGIT">
-  <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Helper/WeatherDbHelper.cs">
+﻿<Properties GitUserInfo="UsingGIT" StartupConfiguration="{9F1FACBC-D4AF-4C26-B511-4244522420D4}|Default">
+  <MonoDevelop.Ide.ItemProperties.HouseduinoBackEnd PreferredExecutionTarget="/Applications/Google Chrome.app" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Startup.cs">
     <Files>
-      <File FileName="Helper/WeatherDbHelper.cs" Line="44" Column="23" />
-      <File FileName="Models/WeatherModel.cs" Line="25" Column="35" />
-      <File FileName="Helper/PressureDbHelper.cs" Line="126" Column="1" />
-      <File FileName="Helper/RainDbHelper.cs" Line="143" Column="56" />
-      <File FileName="Helper/Constants.cs" Line="45" Column="29" />
+      <File FileName="Helper/WeatherDbHelper.cs" />
+      <File FileName="Models/WeatherModel.cs" />
+      <File FileName="Helper/PressureDbHelper.cs" />
+      <File FileName="Helper/RainDbHelper.cs" />
+      <File FileName="Helper/Constants.cs" />
+      <File FileName="Helper/ActivityDbHelper.cs" />
+      <File FileName="Controllers/ActivityController.cs" />
+      <File FileName="Startup.cs" Line="36" Column="59" />
+      <File FileName="Controllers/AirQualityController.cs" />
+      <File FileName="Controllers/AltitudeController.cs" />
+      <File FileName="Controllers/HumidityController.cs" />
+      <File FileName="Controllers/LightnessController.cs" />
+      <File FileName="Controllers/MessageController.cs" />
+      <File FileName="Controllers/PlantController.cs" />
+      <File FileName="Controllers/PressureController.cs" />
+      <File FileName="Controllers/RainController.cs" />
+      <File FileName="Controllers/TemperatureController.cs" />
+      <File FileName="Controllers/WeatherController.cs" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="HouseduinoBackEnd" expanded="True">
             <Node name="HouseduinoBackEnd" expanded="True">
-              <Node name="Helper" expanded="True">
-                <Node name="WeatherDbHelper.cs" selected="True" />
-              </Node>
+              <Node name="Controllers" expanded="True" />
+              <Node name="Helper" expanded="True" />
               <Node name="Models" expanded="True" />
+              <Node name="Startup.cs" selected="True" />
             </Node>
           </Node>
         </State>
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
-      <Breakpoint file="/Users/luigiamoroso/Documents/Sorgenti/HouseduinoBackEnd/Controllers/AltitudeController.cs" relfile="Controllers/AltitudeController.cs" line="72" column="1" />
+      <Breakpoint file="/Users/luigiamoroso/Documents/Sorgenti/HouseduinoBackEnd/Controllers/AltitudeController.cs" relfile="Controllers/AltitudeController.cs" line="74" column="1" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.HouseduinoBackEnd PreferredExecutionTarget="/Applications/Google Chrome.app" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MultiItemStartupConfigurations />
 </Properties>

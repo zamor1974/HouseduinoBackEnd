@@ -7,10 +7,12 @@ using Microsoft.Extensions.Logging;
 using HouseduinoBackEnd.Models;
 using HouseduinoBackEnd.Helper;
 using System.Reflection;
+using Microsoft.AspNetCore.Cors;
 
 namespace HouseduinoBackEnd.Controllers
 {
     [ApiController]
+    [EnableCors("SiteCorsPolicy")]
     [Route("activity")]
     public class ActvityController : ControllerBase
     {

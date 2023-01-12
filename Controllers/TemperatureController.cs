@@ -4,10 +4,12 @@ using HouseduinoBackEnd.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System.Collections.Generic;
+using Microsoft.AspNetCore.Cors;
 
 namespace HouseduinoBackEnd.Controllers
 {
     [ApiController]
+    [EnableCors("SiteCorsPolicy")]
     [Route("temperature")]
     public class TemperatureController : ControllerBase
     {
