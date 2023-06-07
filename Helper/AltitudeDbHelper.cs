@@ -16,7 +16,7 @@ namespace HouseduinoBackEnd.Helper
             //connectionString = $"host={Constants.DBHOST} port={Constants.DBPORT} user={Constants.DBUSERNAME} password={Constants.DBPASSWORD} dbname={Constants.DBNAME} sslmode=disable";
         }
 
-        private async Task<ResponseObjectById> GetObjectById(Int32 idValore)
+        private async Task<ResponseObjectById> GetObjectById(Int64 idValore)
         {
             var response = new ResponseObjectById();
 
@@ -127,16 +127,16 @@ namespace HouseduinoBackEnd.Helper
         {
             var response = new ResponseObjectInsert();
 
-
             try
             {
                 response.status = 1;
                 response.message = "success";
                 var query = string.Format(Queries.ALTITUDE_POST_DATA, request.valore);
+                Serilog.Log.Information($"Altitude.Insert -> {query}");
 
                 await using var dataSource = NpgsqlDataSource.Create(connectionString);
                 await using var command = dataSource.CreateCommand(query);
-                Int32 rdr = (Int32)await command.ExecuteScalarAsync();
+                Int64 rdr = (Int64)await command.ExecuteScalarAsync();
                 var idValore = rdr;
 
                 var responseById = GetObjectById(rdr);

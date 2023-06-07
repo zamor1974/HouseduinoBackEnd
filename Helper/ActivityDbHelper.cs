@@ -4,6 +4,8 @@ using Npgsql;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Object = HouseduinoBackEnd.Models.Object;
+using System.IO;
+using System.Reflection;
 
 namespace HouseduinoBackEnd.Helper
 {
@@ -16,7 +18,7 @@ namespace HouseduinoBackEnd.Helper
             //connectionString = $"host={Constants.DBHOST} port={Constants.DBPORT} user={Constants.DBUSERNAME} password={Constants.DBPASSWORD} dbname={Constants.DBNAME} sslmode=disable";
         }
 
-        private async Task<ResponseObjectById> GetActivityById(Int32 idValore)
+        private async Task<ResponseObjectById> GetActivityById(Int64 idValore)
         {
             var response = new ResponseObjectById();
 
@@ -197,7 +199,7 @@ namespace HouseduinoBackEnd.Helper
 
                 await using var dataSource = NpgsqlDataSource.Create(connectionString);
                 await using var command = dataSource.CreateCommand(Queries.ACTIVITY_INSERT);
-                Int32 rdr = (Int32)await command.ExecuteScalarAsync();
+                Int64 rdr = (Int64)await command.ExecuteScalarAsync();
                 var idValore = rdr;
 
                 var responseById = GetActivityById(rdr);

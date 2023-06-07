@@ -5,6 +5,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
+using Serilog;
 
 namespace HouseduinoBackEnd
 {
@@ -13,6 +14,9 @@ namespace HouseduinoBackEnd
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
+            Log.Logger = new LoggerConfiguration()
+         .ReadFrom.Configuration(configuration)
+         .CreateLogger();
         }
 
         public IConfiguration Configuration { get; }

@@ -16,7 +16,7 @@ namespace HouseduinoBackEnd.Helper
             //connectionString = $"host={Constants.DBHOST} port={Constants.DBPORT} user={Constants.DBUSERNAME} password={Constants.DBPASSWORD} dbname={Constants.DBNAME} sslmode=disable";
         }
 
-        private async Task<ResponseObjectById> GetObjectById(Int32 idValore)
+        private async Task<ResponseObjectById> GetObjectById(Int64 idValore)
         {
             var response = new ResponseObjectById();
 
@@ -171,7 +171,7 @@ namespace HouseduinoBackEnd.Helper
 
                 await using var dataSource = NpgsqlDataSource.Create(connectionString);
                 await using var command = dataSource.CreateCommand(query);
-                Int32 rdr = (Int32)await command.ExecuteScalarAsync();
+                Int64 rdr = (Int64)await command.ExecuteScalarAsync();
                 var idValore = rdr;
 
                 var responseById = GetObjectById(rdr);
