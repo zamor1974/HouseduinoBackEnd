@@ -72,7 +72,6 @@ namespace HouseduinoBackEnd.Controllers
         [HttpPost("insert")]
         public ResponseObjectInsert Insert(RequestObject request)
         {
-            Serilog.Log.Information($"Altitude.Insert -> {request.valore}");
             var response = new ResponseObjectInsert();
             var db = new AltitudeDbHelper();
             response = db.Insert(request).Result;

@@ -71,7 +71,7 @@ namespace HouseduinoBackEnd.Controllers
         [HttpPost("insert")]
         public ResponseObjectInsert Insert(RequestObject request)
         {
-            var response = new ResponseObjectInsert();
+           var response = new ResponseObjectInsert();
             var db = new TemperatureDbHelper();
             response = db.Insert(request).Result;
 

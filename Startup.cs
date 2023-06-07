@@ -17,6 +17,7 @@ namespace HouseduinoBackEnd
             Log.Logger = new LoggerConfiguration()
          .ReadFrom.Configuration(configuration)
          .CreateLogger();
+            Log.Logger.Information("Inizio");
         }
 
         public IConfiguration Configuration { get; }

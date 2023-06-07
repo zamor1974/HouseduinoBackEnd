@@ -25,7 +25,7 @@ namespace HouseduinoBackEnd.Helper
             var dbPressure = new PressureDbHelper();
             var dbHumidity = new HumidityDbHelper();
             var dbActivity = new ActivityDbHelper();
-            var dbLightness = new LightnessDbHelper();
+            //var dbLightness = new LightnessDbHelper();
             var dbAirQuality = new AirQualityDbHelper();
             var dbRain = new RainDbHelper();
 
@@ -35,7 +35,7 @@ namespace HouseduinoBackEnd.Helper
 
             var rain = dbRain.GetLast().Result.data.ToArray()[0].Valore;
             var pressure = dbPressure.GetLast().Result.data.ToArray()[0].Valore;
-            var lightness = dbLightness.GetLast().Result.data.ToArray()[0].Valore;
+            //var lightness = dbLightness.GetLast().Result.data.ToArray()[0].Valore;
             var airQuality = dbAirQuality.GetLast().Result.data.ToArray()[0].Valore;
             var dateNow = DateTime.Now;
             var lastUpdate = dbActivity.GetLast().Result.data.ToArray()[0].DateInsert;
@@ -43,7 +43,7 @@ namespace HouseduinoBackEnd.Helper
 
             weather.Rain = rain;
             weather.Temperature = temperature;
-            weather.Lightness = lightness;
+            //weather.Lightness = lightness;
             weather.Humidity = humidity;
             weather.AirQuality = airQuality;
             weather.Pressure = pressure;
