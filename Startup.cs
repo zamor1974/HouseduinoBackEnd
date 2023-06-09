@@ -38,7 +38,7 @@ namespace HouseduinoBackEnd
             corsBuilder.AllowAnyHeader();
             corsBuilder.AllowAnyMethod();
             //corsBuilder.AllowAnyOrigin(); // For anyone access.
-            corsBuilder.WithOrigins("http://localhost:5900", "http://192.168.1.250:5500"); // for a specific url. Don't add a forward slash on the end!
+            corsBuilder.WithOrigins("http://localhost:5000", "http://localhost:7000", "http://192.168.1.250:5557","http://81.56.99.73:55557"); // for a specific url. Don't add a forward slash on the end!
             corsBuilder.AllowCredentials();
 
             services.AddCors(options =>
