@@ -71,6 +71,13 @@ namespace HouseduinoBackEnd.Controllers
         [HttpPost("insert")]
         public ResponseObjectInsert Insert(RequestObject request)
         {
+            var dbMsg = new MessageDbHelper();
+            var reqMsg = new RequestMessage()
+            {
+                 messaggio=$"Umidità - valore: {request.valore}, data: {DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss")}"
+            };
+            var respMsg = dbMsg.Insert(reqMsg);
+
             var response = new ResponseObjectInsert();
             var db = new HumidityDbHelper();
             response = db.Insert(request).Result;

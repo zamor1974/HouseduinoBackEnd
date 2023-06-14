@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+
 namespace HouseduinoBackEnd.Models
 {
 	public class Prevision {
@@ -23,5 +25,24 @@ namespace HouseduinoBackEnd.Models
         public string ActualeDate { get;  set; }
         public int DayOfTheWeek { get;  set; }
         public double Rain { get;  set; }
+    }
+	public class DashboardItem
+	{
+        public double Temperature { get; set; }
+        public double Humidity { get; set; }
+        public double Pressure { get; set; }
+        public double AirQuality { get; set; }
+        public double Rain { get; set; }
+		public string Date { get; set; }
+	}
+    public class Dashboard
+	{
+		public Dashboard()
+		{
+            items = new List<DashboardItem>();
+		}
+		public Weather Weather { get; set; }
+        public List<DashboardItem> items { get; set; }
+
     }
 }
