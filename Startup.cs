@@ -15,8 +15,8 @@ namespace HouseduinoBackEnd
         {
             Configuration = configuration;
             Log.Logger = new LoggerConfiguration()
-         .ReadFrom.Configuration(configuration)
-         .CreateLogger();
+                             .ReadFrom.Configuration(configuration)
+                             .CreateLogger();
             Log.Logger.Information("Inizio");
         }
 
@@ -25,26 +25,24 @@ namespace HouseduinoBackEnd
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            // Default Policy
+            services.AddCors(options =>
+            {
+                options.AddDefaultPolicy(
+                    builder =>
+                    {
+                        builder.WithOrigins("https://localhost:5000", "http://localhost:3000")
+                                            .AllowAnyHeader()
+                                            .AllowAnyMethod();
+                    });
+            });
+
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "HouseduinoBackEnd", Version = "v1" });
             });
 
-            // ********************
-            // Setup CORS
-            // ********************
-            var corsBuilder = new CorsPolicyBuilder();
-            corsBuilder.AllowAnyHeader();
-            corsBuilder.AllowAnyMethod();
-            //corsBuilder.AllowAnyOrigin(); // For anyone access.
-            corsBuilder.WithOrigins("http://localhost:5000", "http://localhost:7000", "http://192.168.1.250:5557","http://81.56.99.73:55557"); // for a specific url. Don't add a forward slash on the end!
-            corsBuilder.AllowCredentials();
-
-            services.AddCors(options =>
-            {
-                options.AddPolicy("SiteCorsPolicy", corsBuilder.Build());
-            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -60,10 +58,13 @@ namespace HouseduinoBackEnd
             app.UseHttpsRedirection();
             app.UseRouting();
 
-            // ********************
-            // USE CORS - might not be required.
-            // ********************
-            app.UseCors("SiteCorsPolicy");
+            app.UseCors(builder =>
+            {
+                builder
+                .AllowAnyOrigin()
+                .AllowAnyMethod()
+                .AllowAnyHeader();
+            });
 
             app.UseAuthorization();
 

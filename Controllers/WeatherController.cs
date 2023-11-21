@@ -11,7 +11,7 @@ using Object = HouseduinoBackEnd.Models.Object;
 namespace HouseduinoBackEnd.Controllers
 {
     [ApiController]
-    [EnableCors("SiteCorsPolicy")]
+    [EnableCors]
     [Route("weather")]
     public class WeatherController : ControllerBase
     {
