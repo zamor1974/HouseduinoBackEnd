@@ -9,7 +9,7 @@ using Microsoft.AspNetCore.Cors;
 namespace HouseduinoBackEnd.Controllers
 {
     [ApiController]
-    [EnableCors("SiteCorsPolicy")]
+    [EnableCors]
     [Route("message")]
     public class MessageController : ControllerBase
     {

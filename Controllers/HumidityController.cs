@@ -9,7 +9,7 @@ using Microsoft.AspNetCore.Cors;
 namespace HouseduinoBackEnd.Controllers
 {
     [ApiController]
-    [EnableCors("SiteCorsPolicy")]
+    [EnableCors]
     [Route("humidity")]
     public class HumidityController : ControllerBase
     {

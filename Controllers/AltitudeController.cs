@@ -10,7 +10,7 @@ using System.Collections;
 namespace HouseduinoBackEnd.Controllers
 {
     [ApiController]
-    [EnableCors("SiteCorsPolicy")]
+    [EnableCors]
     [Route("altitude")]
     public class AltitudeController : ControllerBase
     {
